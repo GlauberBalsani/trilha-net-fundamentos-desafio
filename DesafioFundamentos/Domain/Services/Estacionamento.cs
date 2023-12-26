@@ -6,14 +6,14 @@ namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
-        private decimal precoInicial = 0;
-        private decimal precoPorHora = 0;
+        private readonly decimal _precoInicial = 0;
+        private readonly decimal _precoPorHora = 0;
         private readonly ISet<Carro> Carros = new HashSet<Carro>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
-            this.precoInicial = precoInicial;
-            this.precoPorHora = precoPorHora;
+            _precoInicial = precoInicial;
+            _precoPorHora = precoPorHora;
         }
 
         public void AdicionarVeiculo()
@@ -57,7 +57,7 @@ namespace DesafioFundamentos.Models
                 decimal valorTotal = 0;
 
 
-                valorTotal = precoInicial + precoPorHora * horas;
+                valorTotal = _precoInicial + _precoPorHora * horas;
 
 
                 Carros.Remove(carroParaRemover);
