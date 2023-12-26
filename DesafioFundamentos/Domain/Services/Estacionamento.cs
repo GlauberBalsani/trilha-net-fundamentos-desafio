@@ -18,11 +18,11 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-            
+
             Console.WriteLine("Digite a placa do veículo para estacionar:");
-            var placa = Console.ReadLine();
+            string? placa = Console.ReadLine();
             Console.WriteLine("Digite o modelo do veículo para estacionar: ");
-            var modelo = Console.ReadLine();
+            string? modelo = Console.ReadLine();
             var carro = Carro.GetCarro(placa, modelo);
 
             Carros.Add(carro);
@@ -30,7 +30,7 @@ namespace DesafioFundamentos.Models
 
         public void ConsultarVeiculo(string placa)
         {
-            if (!Carros.Any(c => c.Placa.ToUpper() == placa.ToUpper()))
+            if (!Carros.Any(c => c.Placa?.ToUpper() == placa.ToUpper()))
             {
                 throw new DomainException("Placa não encontrada");
             }
@@ -40,26 +40,26 @@ namespace DesafioFundamentos.Models
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
 
-            
-            string placa = "";
+
+            string? placa;
             placa = Console.ReadLine();
 
-             var carroParaRemover = Carros.FirstOrDefault(v => v.Placa == placa);
+            Carro? carroParaRemover = Carros.FirstOrDefault(v => v.Placa == placa);
 
             // Verifica se o veículo existe
-            if (Carros.Any(c => c.Placa.ToUpper() == placa.ToUpper()))
+            if (Carros.Any(c => c.Placa?.ToUpper() == placa?.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
-                    
+
                 int horas = 0;
                 horas = Convert.ToInt32(Console.ReadLine());
-                decimal valorTotal = 0; 
-                
+                decimal valorTotal = 0;
+
 
                 valorTotal = precoInicial + precoPorHora * horas;
 
-                
+
                 Carros.Remove(carroParaRemover);
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
@@ -76,8 +76,8 @@ namespace DesafioFundamentos.Models
             if (Carros.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
-                
-                foreach(var v in Carros) 
+
+                foreach (var v in Carros)
                 {
                     Console.WriteLine(v);
                 }
