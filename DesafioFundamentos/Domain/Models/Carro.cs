@@ -8,8 +8,8 @@ namespace DesafioFundamentos.Domain.Models
 {
     public class Carro 
     {
-        public string? Placa { get; private set; }
-        public string? Modelo { get; private set; }
+        public string Placa { get; private set; }
+        public string Modelo { get; private set; }
 
         private Carro(string placa, string modelo)
         {
@@ -26,7 +26,7 @@ namespace DesafioFundamentos.Domain.Models
             return new Carro(placa, modelo);
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             return obj is Carro carro &&
                    Placa == carro.Placa;

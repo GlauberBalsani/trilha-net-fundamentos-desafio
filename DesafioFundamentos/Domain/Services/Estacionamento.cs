@@ -20,9 +20,9 @@ namespace DesafioFundamentos.Models
         {
 
             Console.WriteLine("Digite a placa do veículo para estacionar:");
-            string? placa = Console.ReadLine();
+            var placa = Console.ReadLine();
             Console.WriteLine("Digite o modelo do veículo para estacionar: ");
-            string? modelo = Console.ReadLine();
+            var modelo = Console.ReadLine();
             var carro = Carro.GetCarro(placa, modelo);
 
             Carros.Add(carro);
@@ -30,7 +30,7 @@ namespace DesafioFundamentos.Models
 
         public void ConsultarVeiculo(string placa)
         {
-            if (!Carros.Any(c => c.Placa?.ToUpper() == placa.ToUpper()))
+            if (!Carros.Any(c => c.Placa.ToUpper() == placa.ToUpper()))
             {
                 throw new DomainException("Placa não encontrada");
             }
@@ -41,13 +41,13 @@ namespace DesafioFundamentos.Models
             Console.WriteLine("Digite a placa do veículo para remover:");
 
 
-            string? placa;
+            string placa;
             placa = Console.ReadLine();
 
-            Carro? carroParaRemover = Carros.FirstOrDefault(v => v.Placa == placa);
+            var carroParaRemover = Carros.FirstOrDefault(v => v.Placa == placa);
 
             // Verifica se o veículo existe
-            if (Carros.Any(c => c.Placa?.ToUpper() == placa?.ToUpper()))
+            if (Carros.Any(c => c.Placa.ToUpper() == placa.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
