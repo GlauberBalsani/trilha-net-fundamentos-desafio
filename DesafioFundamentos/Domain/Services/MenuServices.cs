@@ -39,10 +39,10 @@ namespace DesafioFundamentos.Domain.Services
             while (exibirMenu)
             {
                 Console.WriteLine(@"Digite a sua opção:
-                1 - Cadastrar veículo
-                2 - Remover veículo
-                3 - Listar veículos
-                4 - Encerrar");
+1 - Cadastrar veículo
+2 - Remover veículo
+3 - Listar veículos
+4 - Encerrar");
 
 
                 switch (Console.ReadLine())
