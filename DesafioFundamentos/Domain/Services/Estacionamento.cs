@@ -20,7 +20,7 @@ namespace DesafioFundamentos.Models
         {
 
             Console.WriteLine("Digite a placa do veículo para estacionar:");
-            var placa = Console.ReadLine();
+            var placa = Console.ReadLine().ToUpper();
             Console.WriteLine("Digite o modelo do veículo para estacionar: ");
             var modelo = Console.ReadLine();
             var carro = Carro.GetCarro(placa, modelo);
